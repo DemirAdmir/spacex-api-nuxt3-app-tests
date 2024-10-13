@@ -1,11 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "es6", // Use ES6 syntax
+    "module": "commonjs", // Use CommonJS modules for Jest compatibility
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types" // Include your custom types directory
+    ],
+    "baseUrl": ".", // Set base URL to the current directory
+    "paths": {
+      "~/*": ["../../components/*"], // Point to components in the parent folder
+      "@/*": ["../../components/*"], // Correct alias for components
+      "@/interfaces/*": ["../../interfaces/*"], // Alias for interfaces
+      "~/interfaces/*": ["../../interfaces/*"] // Alias for interfaces
+    }
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "**/*.d.ts", "**/*.vue"],
+  "exclude": ["node_modules"] // Exclude node_modules folder
 }
